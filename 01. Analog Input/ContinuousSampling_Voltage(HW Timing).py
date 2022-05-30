@@ -1,4 +1,6 @@
 '''
+Copyleft © MoonNote
+
 작성자 : MoonNote
 블로그 주소 : MoonNote.tistory.com
 '''
@@ -39,4 +41,3 @@ with nidaqmx.Task() as task :
     except KeyboardInterrupt:
         Break
         print('close the program')
-
