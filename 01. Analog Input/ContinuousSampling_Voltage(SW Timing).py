@@ -17,6 +17,7 @@ x = 0
 
 plt.grid()
 plt.ylim(-10, 10)
+plt.ion()
 
 with nidaqmx.Task() as task :
     
@@ -32,6 +33,3 @@ with nidaqmx.Task() as task :
             
     except KeyboardInterrupt:
         Break
-
-plt.show()
-
