@@ -87,7 +87,7 @@ class AIVoltageChan(Task):
         self.WaitUntilTaskDone(timeout)
 
 
-if __name__=="__main__":  #['/dev1/ai0', '/dev1/ai1'], reset 옵션 사항으로 직접 추가
+if __name__=="__main__":
     ai = AIVoltageChan(ai_param=AIParameters(100, 10,['/dev1/ai0']), reset=False, 
                     terminalConfig="DAQmx_Val_RSE", #DAQmx_Val_Diff, DAQmx_Val_RSE, DAQmx_Val_NRSE,  DAQmx_Val_PseudoDiff
                     trigger=None)#RisingTrigger('/dev1/PFI0'))
