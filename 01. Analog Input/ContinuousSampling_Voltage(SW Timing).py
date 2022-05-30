@@ -1,4 +1,6 @@
 '''
+Copyleft © MoonNote
+
 작성자 : MoonNote
 블로그 주소 : MoonNote.tistory.com
 '''
@@ -10,9 +12,9 @@ import matplotlib.pyplot as plt
 from ast import Break
 from nidaqmx.constants import TerminalConfiguration
 
-# 초기 x 값
+
 x = 0
-# plot 그리드 설정 및 y 스케일 지정
+
 plt.grid()
 plt.ylim(-10, 10)
 
@@ -27,10 +29,7 @@ with nidaqmx.Task() as task :
 
             plt.scatter(x, y, color = 'b')
             plt.pause(0.001)
-
-            # 명령창 출력
-            # print(y)
-            # time.sleep(0.1)
+            
     except KeyboardInterrupt:
         Break
 
