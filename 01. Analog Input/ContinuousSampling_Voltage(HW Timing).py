@@ -28,8 +28,7 @@ with nidaqmx.Task() as task :
     
     try:
         while True:
-
-
+            
             x = np.arange(i, i+Read_data, 1, dtype=float)
             data = task.read(Read_data, 10)
 
