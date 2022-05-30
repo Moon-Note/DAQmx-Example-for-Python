@@ -1,7 +1,9 @@
-""" Simple example of analog output
+'''
+Copyleft © MoonNote
 
-    This example outputs 'value' on ao0
-"""
+작성자 : MoonNote
+블로그 주소 : MoonNote.tistory.com
+'''
 import PyDAQmx
 from PyDAQmx import Task
 
