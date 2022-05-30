@@ -1,8 +1,14 @@
+'''
+Copyleft © MoonNote
+
+작성자 : MoonNote
+블로그 주소 : MoonNote.tistory.com
+'''
+
 import PyDAQmx
 import numpy
 
 from PyDAQmx import Task, DAQmxResetDevice, int32
-#파이썬용 외부 함수 라이브러리, C호환 데이터형을 제공하며 DLL 또는 공유 라이브러리에 있는 함수를 호출할 수 있음
 from ctypes import byref
 
 
@@ -87,6 +93,5 @@ if __name__=="__main__":  #['/dev1/ai0', '/dev1/ai1'], reset 옵션 사항으로
                     trigger=None)#RisingTrigger('/dev1/PFI0'))
     ai.start()
     ai.wait()
-    #ai 읽기 데이터 프롬프트 창에 출력
     print(ai.read())
     ai.stop()
