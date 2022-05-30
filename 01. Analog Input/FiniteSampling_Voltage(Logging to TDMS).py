@@ -1,11 +1,16 @@
+'''
+Copyleft © MoonNote
+
+작성자 : MoonNote
+블로그 주소 : MoonNote.tistory.com
+'''
+
 import PyDAQmx
 import numpy as np
 import matplotlib.pyplot as plt
 
 from PyDAQmx import Task, DAQmxResetDevice, int32
-#파이썬용 외부 함수 라이브러리, C호환 데이터형을 제공하며 DLL 또는 공유 라이브러리에 있는 함수를 호출할 수 있음
 from ctypes import byref
-#TDMS 라이브러리 import
 from nptdms import TdmsWriter, ChannelObject
 
 
@@ -89,20 +94,16 @@ if __name__=="__main__":  #['/dev1/ai0', '/dev1/ai1'], reset 옵션 사항으로
                     trigger=None)#RisingTrigger('/dev1/PFI0'))
     ai.start()
     ai.wait()
-    #ai 읽기 데이터
     a = ai.read()
-    #result 변수에 AI 값 1차원으로 변경하여 입력
-    result = np.ravel(a, order='C')
-    #명령창 출력
-    #print(result, type(result))
 
-    #AI 데이터 TDMS 저장
+    result = np.ravel(a, order='C')
+
+
     with TdmsWriter("C:/Users/user/Desktop/PythonDAQmxAI.tdms") as tdms_writer:
         data_array = result                      #np.linespace(0, 1, 10)
         channel = ChannelObject('Group', 'AI 01', data_array)
         tdms_writer.write_segment([channel])
 
-    # Matplotlib Pyplot 디스플레이
     x = np.linspace(0, 1000, 1000)
     y = result
     
