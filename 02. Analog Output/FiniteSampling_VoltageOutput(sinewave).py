@@ -16,8 +16,10 @@ with nidaqmx.Task() as task :
 
     task.ao_channels.add_ao_voltage_chan("Dev1/ao0", "", -10, 10)
     task.timing.cfg_samp_clk_timing(sampling_rate, "", active_edge=Edge.RISING, sample_mode=AcquisitionType.FINITE, samps_per_chan=1000)
+    
     time = np.arange(0, 2*math.pi, 10*2*math.pi/sampling_rate)
     amplitude = 5*np.sin(time)
+    
     task.write(amplitude, auto_start=False, timeout=10)
     task.start()
     task.wait_until_done(10)
