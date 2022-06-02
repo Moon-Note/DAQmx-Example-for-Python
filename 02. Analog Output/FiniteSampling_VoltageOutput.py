@@ -7,7 +7,6 @@ Copyleft © MoonNote
 import PyDAQmx
 from PyDAQmx import Task
 
-
 value = 0
 
 task = Task()
